@@ -14,9 +14,10 @@ Category.hasMany(Product)
 Product.belongsToMany(Tag, {
   through:{
     model: ProductTag,
-    unique:false
+    unique:false,
   }, 
-  as: 'Products'});
+  as: 'tags',
+});
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(Product, {
@@ -24,7 +25,8 @@ Tag.belongsToMany(Product, {
     model: ProductTag,
     unique:false
   }, 
-  as: 'Tags'});
+  as: 'products',
+});
 
 module.exports = {
   Product,
